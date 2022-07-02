@@ -1,0 +1,33 @@
+.card-info-dialog {
+  align-self: flex-end;
+  width: 100%;
+  max-width: 375px !important;
+  border-top-left-radius: 18px !important;
+  border-top-right-radius: 18px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  padding: 26px;
+  margin: 0 !important;
+}
+
+.card-info-dialog-button {
+  margin-top: 12px !important;
+}
+
+.cc-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cc-group-item-left {
+  margin-right: 10px;
+}
+
+.card-info-save {
+  color: rgba(133, 133, 163, 0.8);
+  font-size: 12px;
+}
+
+.card-info-input {
+  margin-bottom: 26px;
+}

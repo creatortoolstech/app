@@ -1,0 +1,15 @@
+.consent-modal {
+  margin: 30px;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.consent-modal p {
+  color: #8585A3;
+  font-size: 12px;
+  margin-bottom: 20px !important;
+}

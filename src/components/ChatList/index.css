@@ -1,0 +1,10 @@
+.chat-list h5 {
+  color: #8989A7;
+  font-size: 14px;
+  margin: 20px 0 13px 0;
+}
+
+.chat-preview-loading {
+  border-radius: 18px !important;
+  margin-bottom: 12px !important;
+}

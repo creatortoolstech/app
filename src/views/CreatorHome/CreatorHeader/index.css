@@ -1,0 +1,31 @@
+.creator-header {
+  background: linear-gradient(124.86deg, #40C1F1 -5.01%, #692CE9 73.55%);
+  display: flex;
+  padding: 12px;
+  color: white;
+}
+
+.creator-header p {
+  font-size: 11px;
+  margin: 0;
+}
+
+.balance {
+  font-size: 26px;
+  margin: 0;
+  font-weight: 900;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  flex-grow: 2;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.logout {
+  font-weight: bold;
+  cursor: pointer;
+}

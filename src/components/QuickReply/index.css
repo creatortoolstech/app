@@ -1,0 +1,11 @@
+.quick-reply-input {
+  background-color: #F7F7F7;
+  border-radius: 30px;
+  padding: 10px !important;
+}
+
+.send {
+  left: 19px;
+  position: relative;
+  top: 7px;
+}

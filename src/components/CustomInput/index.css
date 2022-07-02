@@ -1,0 +1,23 @@
+.custom-input {
+  background: #FFFFFF;
+  box-shadow: 0px 6px 20px rgba(45, 9, 121, 0.2);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.custom-input-label {
+  color: rgba(116, 116, 116, 0.6) !important;
+  font-size: 12px !important;
+  margin-bottom: 10px;
+}
+
+.helper-text {
+  color: rgba(133, 133, 163, 0.8) !important;
+  font-size: 12px !important;
+  margin-top: 12px !important;
+}
+
+.error-container {
+  border: solid #FC505A;
+  border-radius: 6px;
+}

@@ -1,0 +1,29 @@
+.login {
+  padding: 20px;
+}
+
+.login-input {
+  margin-bottom: 30px;
+}
+
+.login-form {
+  margin-bottom: 12px;
+}
+
+.modal-avatar {
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.create-link {
+  margin-top: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.login-error {
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100%;
+}
