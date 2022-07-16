@@ -36,7 +36,6 @@ jobs:
           npm run lint
   
   build:
-    name: Build
     runs-on: ubuntu-latest
     needs:
       - Install
@@ -51,7 +50,6 @@ jobs:
         npm run build
 
   deploy:
-    name: Deploy
     needs:
       - Install
       - Lint
