@@ -39,15 +39,16 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - Install
-    - name: Checkout repo
-      uses: actions/checkout@v3
-    - name: Setup environment
-      uses: ./.github/actions/setup
-    - name: Build app
-      shell: bash
-      run: |
-        npm ci
-        npm run build
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: ./.github/actions/setup
+      - name: Build app
+        shell: bash
+        run: |
+          npm ci
+          npm run build
 
   deploy:
     needs:
