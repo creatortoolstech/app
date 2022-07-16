@@ -1,0 +1,10 @@
+name: 'Setup Node.js'
+description: 'Setup Node.js, install packages and cache.'
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'npm'

@@ -1,0 +1,83 @@
+name: "Creator Tools App Deployment"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  install:
+    name: Install 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: ./.github/actions/setup
+      - name: Install dependencies
+        run: npm ci
+        shell: bash
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    needs:
+      - Install
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: ./.github/actions/setup
+      - name: Lint repo
+        shell: bash
+        run: |
+          npm ci
+          npm run lint
+  
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - Install
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: ./.github/actions/setup
+      - name: Build app
+        shell: bash
+        run: |
+          npm ci
+          npm run build
+
+  deploy:
+    needs:
+      - Install
+      - Lint
+      - Build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: ./.github/actions/setup
+      - name: Build app
+        run: |
+          npm ci
+          npm run build
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} 
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
+          aws-region: us-east-1
+      - name: Push assets to S3
+        run: |
+          npm ci 
+          aws s3 sync ./build/* s3://${{ secrets.S3_BUCKET }} #--acl "public-read" --cache-control "max-age=0, must-revalidate, proxy-revalidate, public"
+      - name: Invalidate cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+      
